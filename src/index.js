@@ -26,17 +26,16 @@ function onSearch(evt) {
     imageApiService.fetchImages().then(hits => {
         clearImagesList()
         imageListMarkup(hits)
-      
-    })
+     })
 }
 
 function onLoadMore() {
     imageApiService.fetchImages().then(imageListMarkup)
-    const element = document.querySelector('.photo-card') 
-    element.scrollIntoView({
+    // const element = document.querySelector('.gallery') 
+    refs.imagesContainer.scrollIntoView({
   behavior: 'smooth',
   block: 'end',
-});
+})
 }
 
 function imageListMarkup(hits) {
