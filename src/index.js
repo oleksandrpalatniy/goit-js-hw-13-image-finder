@@ -31,15 +31,14 @@ function onSearch(evt) {
 
 function onLoadMore() {
     imageApiService.fetchImages().then(imageListMarkup)
-    // const element = document.querySelector('.gallery') 
-    refs.imagesContainer.scrollIntoView({
-  behavior: 'smooth',
-  block: 'end',
-})
 }
 
 function imageListMarkup(hits) {
     refs.imagesContainer.insertAdjacentHTML('beforeend', imageCard(hits))
+    refs.loadMoreBtn.scrollIntoView({
+  behavior: 'smooth',
+  block: 'end',
+})
 }
 
 function clearImagesList() {
